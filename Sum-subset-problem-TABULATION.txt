@@ -1,0 +1,50 @@
+
+public class Main {
+
+	
+	static boolean isSubsetSum(int set[],int n, int sum)
+	{
+		
+		boolean subset[][] = new boolean[sum + 1][n + 1];
+
+		
+		//COLUMN:
+		for (int i = 0; i <= n; i++)
+			subset[0][i] = true;
+
+		
+		//ROW:
+		for (int j = 1; j <= sum; j++)
+			subset[j][0] = false;
+
+		for (int i = 1; i <= sum; i++) {
+			for (int j = 1; j <= n; j++) {
+				
+				if (set[j - 1]<=i)
+					subset[i][j] = subset[i][j-1] || subset[i - set[j - 1]][j - 1];
+								
+								else{
+								    subset[i][j] = subset[i][j - 1];
+								}
+			}
+		}
+
+		
+
+		return subset[sum][n];
+	}
+
+	
+	public static void main(String args[])
+	{
+		int set[] = { 3, 34, 4, 12, 5, 2 };
+		int sum = 9;
+		int n = set.length;
+		if (isSubsetSum(set, n, sum) == true)
+			System.out.println("FOUND!!");
+		else
+			System.out.println("No subset with"
+							+ " given sum");
+	}
+}
+
