@@ -1,4 +1,4 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int subsetSum(int a[], int n, int sum)
@@ -11,7 +11,7 @@ int subsetSum(int a[], int n, int sum)
 	for (int i = 0; i <= sum; i++)
 		t[0][i] = 0;
 		
-		 //initilizing Ist column, coze it is always possible to return sum as ZERO with any number of elements in an array; coze in order to return ZERO, we just need an Empty set i.e { }.
+ //initilizing Ist column, coze it is always possible to return sum as ZERO with any number of elements in an array; coze in order to return ZERO, we just need an Empty set i.e { }.
 	for (int i = 0; i <= n; i++)
 		t[i][0] = 1;
 
